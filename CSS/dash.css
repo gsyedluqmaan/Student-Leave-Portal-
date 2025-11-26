@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #818cf8;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 1rem;
+        }
+
+        
+
+        .main-container {
+            width: 84vw;
+            margin-left: 9vw;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .top,
+        .middle,
+        .bottom {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .top {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .middle {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .bottom {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card {
+            background: var(--card-background);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .quote-container {
+            position: relative;
+            padding: 2rem;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .quote-author {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .birthday-container {
+            padding: 1.5rem;
+        }
+
+        .birthday-card {
+            background: #f1f5f9;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .birthday-card h3 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .birthday-card p {
+            margin: 0.5rem 0 0;
+            color: var(--text-secondary);
+        }
+
+        .leave-table-container {
+            overflow-x: auto;
+        }
+
+        .leave-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .leave-table th,
+        .leave-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .leave-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .leave-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .leave-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .status-today {
+            background-color: #fee2e2;
+            color: #ef4444;
+        }
+
+        .status-upcoming {
+            background-color: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .chart-main-container,
+        .chart-main-container-apex {
+            background: var(--card-background);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            height: auto;
+            min-height: 400px;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+
+            .top,
+            .middle,
+            .bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container {
+                width: 95vw;
+                margin-left: 5vw;
+                padding: 1rem;
+            }
+
+            .quote-text {
+                font-size: 1.25rem;
+            }
+        }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S3 File Manager</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        text-align: center;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        margin: 20px auto;
+        width: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+      .file-link {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        word-wrap: break-word;
+      }
+      button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      .download {
+        background: green;
+        color: white;
+      }
+      .delete {
+        background: red;
+        color: white;
+      }
+    </style>
+    <script>
+      function deleteFile(fileKey) {
+        if (confirm("Are you sure you want to delete this file?")) {
+          fetch("delete.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "fileKey=" + encodeURIComponent(fileKey),
+          })
+            .then((response) => response.text())
+            .then(alert)
+            .catch((error) => alert("Error: " + error));
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="card">
+      <h2>S3 File Manager</h2>
+      <!-- <div>
+        <a
+          class="file-link"
+          href="https://luqmaansample.s3.eu-north-1.amazonaws.com/test.jpg"
+          target="_blank"
+          >test.jpg</a
+        >
+        <button
+          class="download"
+          onclick="window.open('https://luqmaansample.s3.eu-north-1.amazonaws.com/test.jpg')"
+        >
+          Download
+        </button>
+        <button class="delete" onclick="deleteFile('test.jpg')">Delete</button>
+      </div> -->
+      <hr />
+      <div>
+        <a
+          class="file-link"
+          href="https://luqmaansample.s3.eu-north-1.amazonaws.com/Sidebar+(3).tsx"
+          target="_blank"
+          >Sidebar (3).tsx</a
+        >
+        <button
+          class="download"
+          onclick="window.open('https://luqmaansample.s3.eu-north-1.amazonaws.com/Sidebar+(3).tsx')"
+        >
+          Download
+        </button>
+        <button class="delete" onclick="deleteFile('Sidebar (3).tsx')">
+          Delete
+        </button>
+      </div>
+      <hr />
+      <!-- <div>
+        <a
+          class="file-link"
+          href="https://luqmaansample.s3.eu-north-1.amazonaws.com/Amendment+to+Leave+Policy+(1).pdf"
+          target="_blank"
+          >Amendment to Leave Policy (1).pdf</a
+        >
+        <button
+          class="download"
+          onclick="window.open('https://luqmaansample.s3.eu-north-1.amazonaws.com/Amendment+to+Leave+Policy+(1).pdf')"
+        >
+          Download
+        </button>
+        <button
+          class="delete"
+          onclick="deleteFile('Amendment to Leave Policy (1).pdf')"
+        >
+          Delete
+        </button>
+      </div> -->
+    </div>
+  </body>
+</html>
